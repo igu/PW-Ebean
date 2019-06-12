@@ -1,0 +1,22 @@
+2019-06-12 18:31:16,880 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-2 - Database [default] initialized at jdbc:h2:~/bd
+2019-06-12 18:31:16,883 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-2 - Creating Pool for datasource 'default'
+2019-06-12 18:31:18,980 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-2 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+
+2019-06-12 18:31:19,283 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-2 - Application started (Dev) (no global state)
+2019-06-12 18:31:23,303 [INFO] from application in application-akka.actor.default-dispatcher-4 - Shutting down connection pool.
+2019-06-12 18:31:23,802 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-7 - Database [default] initialized at jdbc:h2:~/bd
+2019-06-12 18:31:23,803 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-7 - Creating Pool for datasource 'default'
+2019-06-12 18:31:23,964 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-7 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+
+2019-06-12 18:31:24,193 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-7 - Application started (Dev) (no global state)
+2019-06-12 18:50:46,672 [INFO] from play.core.server.AkkaHttpServer in pool-8-thread-3 - Stopping server...
+2019-06-12 18:50:58,809 [INFO] from application in application-akka.actor.default-dispatcher-2 - Shutting down connection pool.
+2019-06-12 18:50:59,103 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-11 - Database [default] initialized at jdbc:h2:~/bd
+2019-06-12 18:50:59,103 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-11 - Creating Pool for datasource 'default'
+2019-06-12 18:50:59,272 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-11 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+
+2019-06-12 18:50:59,414 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-11 - Application started (Dev) (no global state)
+2019-06-12 18:50:59,418 [INFO] from application in application-akka.actor.default-dispatcher-2 - Shutting down connection pool.

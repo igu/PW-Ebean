@@ -1,0 +1,4 @@
+[0m[[0m[31merror[0m] [0m[0m/Users/basico/Desktop/lista/app/controllers/HomeController.java:54:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   variable TODO[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.HomeController[0m
+[0m[[0m[31merror[0m] [0m[0m      return TODO;[0m
