@@ -7,9 +7,8 @@ import io.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
 
-@Entity
+@MappedSuperclass
 public class Cliente extends Model {
-
 
   /*      =================
          C O N S T R U T O R E S
@@ -31,13 +30,14 @@ public class Cliente extends Model {
   @Id
   private Integer codigo;
 
-  @Column(nullable=false)
+  @Column(length=25,nullable=false)
   private String endereco;
 
+  @Column(length=15,nullable=false)
   private String telefone;
 
 
-  public static final Finder<Integer, Cliente> find = new Finder<>(Cliente.class);
+  // public static final Finder<Integer, Cliente> find = new Finder<>(Cliente.class);
 
   /*      =================
          G E T T E R S

@@ -18,8 +18,13 @@ public class Compra extends Model {
 
   public Compra () { }
 
-  public Compra (Cliente cliente, Livro livro) {
-    this.cliente = cliente;
+  public Compra (Fisico fisico, Livro livro) {
+    this.fisico = fisico;
+    this.livro = livro;
+  }
+
+  public Compra (Juridico juridico, Livro livro) {
+    this.juridico = juridico;
     this.livro = livro;
   }
 
@@ -31,11 +36,14 @@ public class Compra extends Model {
   @Id
   private Integer codigo;
 
-  @ManyToOne(optional=false)
+  @ManyToOne
   public Livro livro;
 
-  @ManyToOne(optional=false)
-  public Cliente cliente;
+  @ManyToOne(optional=true, targetEntity=Fisico.class)
+  public Fisico fisico;
+
+  @ManyToOne(optional=true, targetEntity=Juridico.class)
+  public Juridico juridico;
 
   public static final Finder<Integer, Compra> find = new Finder<>(Compra.class);
 
@@ -53,8 +61,12 @@ public class Compra extends Model {
           return livro;
         }
 
-        public Cliente getCliente(){
-          return cliente;
+        public Fisico getFisico(){
+          return fisico;
+        }
+
+        public Juridico getJuridico(){
+          return juridico;
         }
 
   /*      =================
@@ -66,12 +78,16 @@ public class Compra extends Model {
           this.codigo = codigo;
         }
 
-        public void setLivro(){
+        public void setLivro(Livro livro){
           this.livro = livro;
         }
 
-        public void setCliente(){
-          this.cliente = cliente;
+        public void setFisico(Fisico fisico){
+          this.fisico = fisico;
+        }
+
+        public void setJuridico(Juridico juridico){
+          this.juridico = juridico;
         }
 
 }

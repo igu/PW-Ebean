@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/basico/Desktop/lista/conf/routes
-// @DATE:Wed Jun 12 16:12:51 BRT 2019
+// @SOURCE:/home/igu/Desktop/PW-Ebean/conf/routes
+// @DATE:Sat Jun 15 23:34:07 BRT 2019
 
 package router
 
@@ -16,7 +16,7 @@ class Routes(
   override val errorHandler: play.api.http.HttpErrorHandler, 
   // @LINE:6
   HomeController_1: controllers.HomeController,
-  // @LINE:11
+  // @LINE:14
   Assets_0: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -25,7 +25,7 @@ class Routes(
    def this(errorHandler: play.api.http.HttpErrorHandler,
     // @LINE:6
     HomeController_1: controllers.HomeController,
-    // @LINE:11
+    // @LINE:14
     Assets_0: controllers.Assets
   ) = this(errorHandler, HomeController_1, Assets_0, "/")
 
@@ -42,7 +42,9 @@ class Routes(
   def documentation = List(
     ("""GET""", this.prefix, """controllers.HomeController.index"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """popular""", """controllers.HomeController.popular"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """nova""", """controllers.HomeController.novaEditora"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """listarLivros""", """controllers.HomeController.listarLivros"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """listarCompras""", """controllers.HomeController.listarCompras"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """listarLivrosEditora""", """controllers.HomeController.listarLivrosEditora"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -88,28 +90,64 @@ class Routes(
   )
 
   // @LINE:8
-  private[this] lazy val controllers_HomeController_novaEditora2_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("nova")))
+  private[this] lazy val controllers_HomeController_listarLivros2_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("listarLivros")))
   )
-  private[this] lazy val controllers_HomeController_novaEditora2_invoker = createInvoker(
-    HomeController_1.novaEditora,
+  private[this] lazy val controllers_HomeController_listarLivros2_invoker = createInvoker(
+    HomeController_1.listarLivros,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.HomeController",
-      "novaEditora",
+      "listarLivros",
       Nil,
-      "GET",
-      this.prefix + """nova""",
+      "POST",
+      this.prefix + """listarLivros""",
       """""",
       Seq()
     )
   )
 
-  // @LINE:11
-  private[this] lazy val controllers_Assets_versioned3_route = Route("GET",
+  // @LINE:9
+  private[this] lazy val controllers_HomeController_listarCompras3_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("listarCompras")))
+  )
+  private[this] lazy val controllers_HomeController_listarCompras3_invoker = createInvoker(
+    HomeController_1.listarCompras,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "listarCompras",
+      Nil,
+      "POST",
+      this.prefix + """listarCompras""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:10
+  private[this] lazy val controllers_HomeController_listarLivrosEditora4_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("listarLivrosEditora")))
+  )
+  private[this] lazy val controllers_HomeController_listarLivrosEditora4_invoker = createInvoker(
+    HomeController_1.listarLivrosEditora,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "listarLivrosEditora",
+      Nil,
+      "POST",
+      this.prefix + """listarLivrosEditora""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:14
+  private[this] lazy val controllers_Assets_versioned5_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned3_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_versioned5_invoker = createInvoker(
     Assets_0.versioned(fakeValue[String], fakeValue[Asset]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -139,15 +177,27 @@ class Routes(
       }
   
     // @LINE:8
-    case controllers_HomeController_novaEditora2_route(params@_) =>
+    case controllers_HomeController_listarLivros2_route(params@_) =>
       call { 
-        controllers_HomeController_novaEditora2_invoker.call(HomeController_1.novaEditora)
+        controllers_HomeController_listarLivros2_invoker.call(HomeController_1.listarLivros)
       }
   
-    // @LINE:11
-    case controllers_Assets_versioned3_route(params@_) =>
+    // @LINE:9
+    case controllers_HomeController_listarCompras3_route(params@_) =>
+      call { 
+        controllers_HomeController_listarCompras3_invoker.call(HomeController_1.listarCompras)
+      }
+  
+    // @LINE:10
+    case controllers_HomeController_listarLivrosEditora4_route(params@_) =>
+      call { 
+        controllers_HomeController_listarLivrosEditora4_invoker.call(HomeController_1.listarLivrosEditora)
+      }
+  
+    // @LINE:14
+    case controllers_Assets_versioned5_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
-        controllers_Assets_versioned3_invoker.call(Assets_0.versioned(path, file))
+        controllers_Assets_versioned5_invoker.call(Assets_0.versioned(path, file))
       }
   }
 }

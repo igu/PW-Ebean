@@ -6,8 +6,18 @@ import java.util.*;
 
 public class HomeController extends Controller {
 
+
+    List<Livro> livros = Livro.find.all();
+    List<Fisico> fisicos = Fisico.find.all();
+    List<Editora> editoras = Editora.find.all();
+    HashSet<String> autores = new HashSet<String>();
+
     public Result index() {
-        return ok(views.html.index.render());
+        for(int i = 0; i < livros.size(); i++){
+          autores.add(livros.get(i).getAutor());
+        }
+        
+        return ok(views.html.index.render(autores,null,null,fisicos,null,null,editoras,null));
     }
 
 
@@ -48,17 +58,24 @@ public class HomeController extends Controller {
       l5.setEditora(ed3);
       l5.save();
 
+      Livro l6 = new Livro(10,"Jogos Vorazes","Igor Frank","0000000000006");
+      l6.setEditora(ed1);
+      l6.save();
+
 
       //  ==== Clientes
 
-      Cliente n1 = new Cliente("Alameda das Mansoes","(84) 0000-0000");
+      Fisico n1 = new Fisico("Alameda das Mansoes","(84) 0000-0000","59618430090");
       n1.save();
 
-      Cliente n2 = new Cliente("Familia dos Picuí","(84) 0000-0001");
+      Fisico n2 = new Fisico("Familia dos Picuí","(84) 0000-0001","06054444042");
       n2.save();
 
-      Cliente n3 = new Cliente("Nova floresta","(84) 0000-0003");
+      Juridico n3 = new Juridico("Nova floresta","(84) 0000-0003","63556216000158");
       n3.save();
+
+      Juridico n4 = new Juridico("Nova floresta","(84) 0000-0003","98753777000121");
+      n4.save();
 
       //  ==== Compras
 
@@ -68,6 +85,11 @@ public class HomeController extends Controller {
       Compra c2 = new Compra(n2,l1);
       c2.save();
 
+      Compra c3 = new Compra(n3,l2);
+      c3.save();
+
+      Compra c4 = new Compra(n1,l3);
+      c4.save();
 
       return ok("Banco de Dados populado.");
 
@@ -75,8 +97,40 @@ public class HomeController extends Controller {
     }
 
 
-    public Result novaEditora(){
-      return ok("Oi");
+    public Result listarLivros(){
+      Map<String, String[]> postForm = request().body().asFormUrlEncoded();
+      String nameAutor = null;
+      try{ 
+        nameAutor = postForm.get("autor")[0];
+        List <Livro> livros = Livro.find.query().select("*").where().eq("autor",nameAutor).findList();
+        return ok(views.html.index.render(autores,livros,nameAutor,fisicos,null,null,editoras,null));
+      }catch(NullPointerException e){ 
+        return notFound("Erro com o termo de busca de autor");
+      }
     }
 
+    public Result listarCompras(){
+      Map<String, String[]> postForm = request().body().asFormUrlEncoded();
+      String cpf = null;
+      try{ 
+        cpf = postForm.get("cliente")[0];
+        Fisico f = Fisico.find.query().select("*").where().eq("cpf", cpf).findOne();
+        List <Compra> compras = Compra.find.query().select("*").where().eq("fisico_codigo",f.getCodigo()).findList();
+        return ok(views.html.index.render(autores,null,null,fisicos,compras,cpf,editoras,null));
+      }catch(NullPointerException e){ 
+        return notFound("Erro com o termo de busca de cliente");
+      }
+    }
+
+    public Result listarLivrosEditora(){
+      Map<String, String[]> postForm = request().body().asFormUrlEncoded();
+      String codigo = null;
+      try{ 
+        codigo = postForm.get("editoras")[0];
+        List <Livro> livros = Livro.find.query().select("*").where().eq("editora_codigo",codigo).findList();
+        return ok(views.html.index.render(autores,null,null,fisicos,null,null,editoras,livros));
+      }catch(NullPointerException e){ 
+        return notFound("Erro com o termo de busca de editora");
+      }
+    }
 }

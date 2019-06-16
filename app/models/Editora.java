@@ -32,13 +32,13 @@ public class Editora extends Model {
   @Id
   private Integer codigo;
 
-  @Column(nullable=false)
+  @Column(length=35,nullable=false)
   private String endereco;
 
-  @Column(nullable=false)
+  @Column(length=25,nullable=false)
   private String gerente;
 
-  @Column(nullable=false)
+  @Column(length=15,nullable=false)
   private String telefone;
 
   public static final Finder<Integer, Editora> find = new Finder<>(Editora.class);

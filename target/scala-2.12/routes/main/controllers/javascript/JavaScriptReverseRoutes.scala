@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/basico/Desktop/lista/conf/routes
-// @DATE:Wed Jun 12 16:12:51 BRT 2019
+// @SOURCE:/home/igu/Desktop/PW-Ebean/conf/routes
+// @DATE:Sat Jun 15 23:34:07 BRT 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -20,11 +20,11 @@ package controllers.javascript {
 
   
     // @LINE:8
-    def novaEditora: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.novaEditora",
+    def listarLivros: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.listarLivros",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "nova"})
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "listarLivros"})
         }
       """
     )
@@ -35,6 +35,26 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "popular"})
+        }
+      """
+    )
+  
+    // @LINE:9
+    def listarCompras: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.listarCompras",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "listarCompras"})
+        }
+      """
+    )
+  
+    // @LINE:10
+    def listarLivrosEditora: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.listarLivrosEditora",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "listarLivrosEditora"})
         }
       """
     )
@@ -51,7 +71,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:11
+  // @LINE:14
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -59,7 +79,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:11
+    // @LINE:14
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """

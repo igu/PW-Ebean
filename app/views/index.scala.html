@@ -1,5 +1,73 @@
-@()
+@(autores : HashSet[String], books : List[Livro],
+escritor : String, clientes : List[Fisico], 
+compras : List[Compra], comprador : String,
+editoras : List[Editora], booksEd : List[Livro])
 
 @main("Q1") {
-  <a href="nova-editora">Criar Editora</a>
+<div>
+  <h2>[*] Popule o banco</h2>
+  <a href="popular">Popular</a>
+</div>
+<hr>
+<div>
+  <h2>[a] Selecione um Ator</h2>
+  <form action="listarLivros" method="POST">
+    <select name="autor">
+      @for(autor <- autores){
+        <option>@autor</option>
+      }
+    </select>
+    <input type="submit" value="Listar Livros"/>
+  </form>
+  @if(escritor != null){
+    <h3>Livros do @escritor</h3>
+    <ul>
+      @for(book <- books){
+        <li>@book.getAssunto()</li>
+      }
+    </ul>
+  }
+</div>
+<hr>
+<div>
+    <h2>[b] Selecione um Cliente p/ listar compras</h2>
+    <form action="listarCompras" method="POST">
+        <select name="cliente">
+          @for(cliente <- clientes){
+            <option>@cliente.getCpf()</option>
+          }
+        </select>
+        <input type="submit" value="Listar Compras"/>
+      </form>
+      @if(comprador != null){
+        <h3>Livros comprados por @comprador</h3>
+        <ul>
+          @for(compra <- compras){
+            <li>ISBN livro comprado: @compra.getLivro().getIsbn()</li>
+            <li>Assunto livro comprado: @compra.getLivro().getAssunto()</li>
+            <hr>
+          }
+        </ul>
+      }
+</div>
+<hr>
+<div>
+    <h2>[c] Selecione uma editora p/ listar livros</h2>
+    <form action="listarLivrosEditora" method="POST">
+        <select name="editoras">
+          @for(editora <- editoras){
+            <option>@editora.getCodigo()</option>
+          }
+        </select>
+        <input type="submit" value="Selecionar"/>
+      </form>
+    @if(booksEd != null){
+      <ul>
+        @for(ed <- booksEd){
+          <li>@ed.getAssunto()</li>
+        }
+      </ul>
+    }
+</div>
+  
 }

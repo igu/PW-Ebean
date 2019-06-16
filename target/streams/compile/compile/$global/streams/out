@@ -1,4 +1,2 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/basico/Desktop/lista/app/controllers/HomeController.java:54:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   variable TODO[0m
-[0m[[0m[31merror[0m] [0m[0m  location: class controllers.HomeController[0m
-[0m[[0m[31merror[0m] [0m[0m      return TODO;[0m
+[0m[[0m[0minfo[0m] [0m[0m/home/igu/Desktop/PW-Ebean/app/controllers/HomeController.java: /home/igu/Desktop/PW-Ebean/app/controllers/HomeController.java uses or overrides a deprecated API.[0m
+[0m[[0m[0minfo[0m] [0m[0m/home/igu/Desktop/PW-Ebean/app/controllers/HomeController.java: Recompile with -Xlint:deprecation for details.[0m

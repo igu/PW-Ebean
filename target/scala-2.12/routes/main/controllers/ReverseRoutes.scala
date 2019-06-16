@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/basico/Desktop/lista/conf/routes
-// @DATE:Wed Jun 12 16:12:51 BRT 2019
+// @SOURCE:/home/igu/Desktop/PW-Ebean/conf/routes
+// @DATE:Sat Jun 15 23:34:07 BRT 2019
 
 import play.api.mvc.Call
 
@@ -19,15 +19,27 @@ package controllers {
 
   
     // @LINE:8
-    def novaEditora(): Call = {
+    def listarLivros(): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "nova")
+      Call("POST", _prefix + { _defaultPrefix } + "listarLivros")
     }
   
     // @LINE:7
     def popular(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "popular")
+    }
+  
+    // @LINE:9
+    def listarCompras(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "listarCompras")
+    }
+  
+    // @LINE:10
+    def listarLivrosEditora(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "listarLivrosEditora")
     }
   
     // @LINE:6
@@ -38,14 +50,14 @@ package controllers {
   
   }
 
-  // @LINE:11
+  // @LINE:14
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:11
+    // @LINE:14
     def versioned(file:Asset): Call = {
       implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[Asset]].unbind("file", file))

@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/basico/Desktop/lista/conf/routes
-// @DATE:Wed Jun 12 16:12:51 BRT 2019
+// @SOURCE:/home/igu/Desktop/PW-Ebean/conf/routes
+// @DATE:Sat Jun 15 23:34:07 BRT 2019
 
 package controllers;
 

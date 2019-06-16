@@ -32,9 +32,10 @@ public class Livro extends Model {
   @Id
   private String isbn;
 
-  @Column(nullable=false)
+  @Column(length=25,nullable=false)
   private String autor;
 
+  @Column(nullable=false)
   private Integer qtde;
 
   @Column(nullable=false)
